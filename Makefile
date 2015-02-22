@@ -12,8 +12,8 @@ view: quiet
 	open "/tmp/`basename '$(CURDIR)'`"/*.pdf
 
 deploy: quiet
-	cp "/tmp/`basename '$(CURDIR)'`"/main.pdf ./
-	open main.pdf
+	mkdir -p out/
+	cp "/tmp/`basename '$(CURDIR)'`"/main.pdf ./out
 
 clean:
 	rm -rf "/tmp/`basename '$(CURDIR)'`"
