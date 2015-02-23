@@ -5,6 +5,8 @@ before_install:
 - chmod +x ./install-tl-ubuntu
 - wget -O linux.profile https://gist.githubusercontent.com/helloIAmPau/f1f6d90a9aadd514ef1d/raw/0b9b7b1097fbba4197106e856537e238804f3f4e/linux.profile
 - sudo ./install-tl-ubuntu -p linux.profile --no-link-ubuntu
+- ls /opt/TexLive/bin/x86_64-linux/
+- export PATH="$PATH:/opt/TexLive/bin/x86_64-linux/"
 script: make deploy
 after_success: 
 - cd out/
@@ -17,7 +19,6 @@ after_success:
 env: 
   global: 
   - GH_URL="github.com/helloIAmPau/curriculum-vitae"
-  - PATH="$PATH:/opt/TexLive/bin/x86_64-linux/"
   - secure: a0is0Kpdbm3G171t5OUj9rc4Pyl4cn0eHsEau7Oj8BPpY28l5avnHEYaM3NN4+jD3OeL6npMsNG9IkstMAimbaU1cwAryk35D6N0Vfh5MYxk/I3dWLT5mcv7nZ66kQSKCVpco5A+KW28mo9at2g1DrQFrlgAsO4r5CV9HuWCIg8=
   - secure: h2GqrziyNhuXem0EtdUGo6FlcU8HH9ij4HWw7k1XSTbAHI/pW4yYXBoJGuEVfMuTyzoyWG5TfenROiYrnC3z4CPnBTaljisuBLpb0SpgkonBGW9m6RsgRlHbIRbKfJ3nOQGF4BN/gQxHNPXM5vzQSo8ddiiV/EOdZizC8cqxF+E=
   - secure: f/w20pB67TeKzlyy3b7qKLR9c13CBp36sbT/wtlhstICkZF8bDHPEQV85xsf+Jk1OrsEaNsm9/3+AbYMeDe3oJFQ0iOtzuh1eFMS3ZA6IQHS5XHHO3ok03updGgy1rwOj+TMEyfcxyf3GIYr+HBo8pFu4+p0kcUUPUa6CxM6xDU=
