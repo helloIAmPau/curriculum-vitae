@@ -3,7 +3,8 @@ before_install:
   - sudo apt-get update -qq
   - wget https://github.com/scottkosty/install-tl-ubuntu/raw/master/install-tl-ubuntu
   - chmod +x ./install-tl-ubuntu
-  - sudo ./install-tl-ubuntu
+  - wget -O linux.profile https://gist.githubusercontent.com/helloIAmPau/f1f6d90a9aadd514ef1d/raw/0b9b7b1097fbba4197106e856537e238804f3f4e/linux.profile
+  - sudo ./install-tl-ubuntu -p linux.profile
 script: make deploy
 after_success: 
   - cd out/
@@ -20,3 +21,4 @@ env:
   - secure: LAlRhIowmH7pFQGfQov0W2XDksCQPzCt6TuhU4qDYohd0Yel239rHgHsJpS7tRZObApEd7H8c0MqK8qn+aewj5x4E2y84H2tZx8vnRJq1R1jEf6e5FZ/kM6kGqvK/qANOQK+eHSheOhYk/eo6kejcQo1udMeIOML0HeD1QuCnes=
   - GH_URL="github.com/helloIAmPau/curriculum-vitae"
   - secure: hOn7FiC75W4zIE4ttG8tjkuObk3FsKQ1WRBss5+rG8fRDf3wzcO/kwImnLJZVFuCBhsR3xkAiCVdGCWJNdOY+wm+bmzUqV0YhXV/jiu+Ax2MAfbSR46ctx38chmEUHAiCJh2sH0A+Z1nH25HLMyvSjCAbTwNuyrStfiR0Z4VBLs=
+  - PATH="$PATH:/opt/TexLive/bin/x86_64-linux/"
