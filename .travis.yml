@@ -1,7 +1,9 @@
 language: C
 before_install: 
   - sudo apt-get update -qq
-  - sudo apt-get install -qq texlive-full
+  - wget https://github.com/scottkosty/install-tl-ubuntu/raw/master/install-tl-ubuntu
+  - chmod +x ./install-tl-ubuntu
+  - sudo ./install-tl-ubuntu
 script: make deploy
 after_success: 
   - cd out/
