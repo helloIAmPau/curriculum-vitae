@@ -1,24 +1,23 @@
 language: C
 before_install: 
-  - sudo apt-get update -qq
-  - wget https://github.com/scottkosty/install-tl-ubuntu/raw/master/install-tl-ubuntu
-  - chmod +x ./install-tl-ubuntu
-  - wget -O linux.profile https://gist.githubusercontent.com/helloIAmPau/f1f6d90a9aadd514ef1d/raw/0b9b7b1097fbba4197106e856537e238804f3f4e/linux.profile
-  - sudo ./install-tl-ubuntu -p linux.profile
+- sudo apt-get update -qq
+- wget https://github.com/scottkosty/install-tl-ubuntu/raw/master/install-tl-ubuntu
+- chmod +x ./install-tl-ubuntu
+- wget -O linux.profile https://gist.githubusercontent.com/helloIAmPau/f1f6d90a9aadd514ef1d/raw/0b9b7b1097fbba4197106e856537e238804f3f4e/linux.profile
+- sudo ./install-tl-ubuntu -p linux.profile
 script: make deploy
 after_success: 
-  - cd out/
-  - git init
-  - git config user.name ${GIT_NAME}
-  - git config user.email ${GIT_EMAIL}
-  - git add .
-  - git commit -m 'deploying updated version of my cv'
-  - git push --force --quiet https://${GH_TOKEN}@${GH_URL} master:gh-pages > /dev/null 2>&1
+- cd out/
+- git init
+- git config user.name ${GIT_NAME}
+- git config user.email ${GIT_EMAIL}
+- git add .
+- git commit -m 'deploying an updated version of my cv'
+- git push --force --quiet https://${GH_TOKEN}@${GH_URL} master:gh-pages > /dev/null 2>&1
 env: 
   global: 
-  - secure: eGV8naQfKSF1JJZoT9oKJsFfRFZ8lq2wQdt6NoTYbq4KlEo2+5vGeu5uAxz8HTgMRvu2ZlNqsO6q5pB2g/hip158S0kUv2L34y/avrGjLESwL5/hFcPC5MhhshSqVQcRKRt1SnuRwrPjwR4zpqGkCfilXNBl/gTo4Jw/m+ov9m8=
-  - secure: hUUTGTU/CX3ii5BMNtm28D32Qk7P3ibwQeCb9caygY4X//jXM3Use1EFrA7wLfW+43NgeESO/YegYRO1QPKmC7KSRhjydwBbd2DNqXjp5zB5+lp0utsnAA13ZWVl66vClMnUTRQEt4+z042KQ3vkQL+Rr1vuTiQPJr89Zt+GM5o=
-  - secure: LAlRhIowmH7pFQGfQov0W2XDksCQPzCt6TuhU4qDYohd0Yel239rHgHsJpS7tRZObApEd7H8c0MqK8qn+aewj5x4E2y84H2tZx8vnRJq1R1jEf6e5FZ/kM6kGqvK/qANOQK+eHSheOhYk/eo6kejcQo1udMeIOML0HeD1QuCnes=
   - GH_URL="github.com/helloIAmPau/curriculum-vitae"
-  - secure: hOn7FiC75W4zIE4ttG8tjkuObk3FsKQ1WRBss5+rG8fRDf3wzcO/kwImnLJZVFuCBhsR3xkAiCVdGCWJNdOY+wm+bmzUqV0YhXV/jiu+Ax2MAfbSR46ctx38chmEUHAiCJh2sH0A+Z1nH25HLMyvSjCAbTwNuyrStfiR0Z4VBLs=
   - PATH="$PATH:/opt/TexLive/bin/x86_64-linux/"
+  - secure: a0is0Kpdbm3G171t5OUj9rc4Pyl4cn0eHsEau7Oj8BPpY28l5avnHEYaM3NN4+jD3OeL6npMsNG9IkstMAimbaU1cwAryk35D6N0Vfh5MYxk/I3dWLT5mcv7nZ66kQSKCVpco5A+KW28mo9at2g1DrQFrlgAsO4r5CV9HuWCIg8=
+  - secure: h2GqrziyNhuXem0EtdUGo6FlcU8HH9ij4HWw7k1XSTbAHI/pW4yYXBoJGuEVfMuTyzoyWG5TfenROiYrnC3z4CPnBTaljisuBLpb0SpgkonBGW9m6RsgRlHbIRbKfJ3nOQGF4BN/gQxHNPXM5vzQSo8ddiiV/EOdZizC8cqxF+E=
+  - secure: f/w20pB67TeKzlyy3b7qKLR9c13CBp36sbT/wtlhstICkZF8bDHPEQV85xsf+Jk1OrsEaNsm9/3+AbYMeDe3oJFQ0iOtzuh1eFMS3ZA6IQHS5XHHO3ok03updGgy1rwOj+TMEyfcxyf3GIYr+HBo8pFu4+p0kcUUPUa6CxM6xDU=
