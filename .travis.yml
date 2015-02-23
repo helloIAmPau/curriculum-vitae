@@ -4,7 +4,7 @@ before_install:
 - wget https://github.com/scottkosty/install-tl-ubuntu/raw/master/install-tl-ubuntu
 - chmod +x ./install-tl-ubuntu
 - wget -O linux.profile https://gist.githubusercontent.com/helloIAmPau/f1f6d90a9aadd514ef1d/raw/0b9b7b1097fbba4197106e856537e238804f3f4e/linux.profile
-- sudo ./install-tl-ubuntu -p linux.profile
+- sudo ./install-tl-ubuntu -p linux.profile --no-link-ubuntu
 script: make deploy
 after_success: 
 - cd out/
