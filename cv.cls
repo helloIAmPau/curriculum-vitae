@@ -5,6 +5,7 @@
 \LoadClass{article}
 
 \usepackage[margin=0.3in]{geometry}
+\RequirePackage{progressbar}
 \RequirePackage{graphicx}
 \RequirePackage{fontawesome}
 \RequirePackage{hyperref}
@@ -12,7 +13,7 @@
 \renewcommand*{\familydefault}{\sfdefault}
 \pagenumbering{gobble}
 
-\fontspec[Path=fonts/]{FontAwesome.otf}
+\newfontfamily\FAW[Path=fonts/]{FontAwesome.otf}
 
 % Title with lines
 \newcommand*\ruleline[1]{\par\noindent\raisebox{.8ex}{\makebox[.9\linewidth]{\hrulefill\hspace{1ex}\raisebox{-.8ex}{#1}\hspace{1ex}\hrulefill}}}
@@ -71,7 +72,9 @@
 \newcommand{\sectiontitle}[2]{
   \LARGE #1 \\ \large \ruleline{\uppercase{#2}} \\ \medskip \normalsize
 }
-\providecommand\faSkype{{\FA\symbol{"F17E}}}
+\providecommand\faSkype{{\FAW\symbol{"F17E}}}
+\providecommand\faUserSecret{{\FAW\symbol{"F21B}}}
+\providecommand\faGraduationCap{{\FAW\symbol{"F19D}}}
 
 \newenvironment{cvsection}[2]{
   \begin{center}
@@ -80,8 +83,7 @@
 }{}
 
 \newenvironment{resume}{
-  \begin{minipage}[t][.99\textheight][t]{.35\textwidth}
-    %%% Begin Title %%%
+  \begin{minipage}[c][.99\textheight][c]{.35\textwidth}
     \begin{center}
       \includegraphics[width=.4\textwidth]{\photoval}
     \end{center}
@@ -98,7 +100,7 @@
     \bigskip
     %%% Begin About %%%
     \begin{center}
-      \sectiontitle{\faUser}{About}
+      \sectiontitle{\faUserSecret}{About}
     \end{center}
     \begin{tabular}{cl}
       \faCalendar & \borndateval\\
@@ -131,9 +133,27 @@
   \end{minipage}
   \vrule
   \hfill
-  \begin{minipage}[t]{.6\textwidth}
+  \begin{minipage}[c]{.6\textwidth}
 }{
   \end{minipage}
+}
+
+\newcommand{\level}[3]{
+  \vspace{-1em}
+  \begin{center}
+    \begin{minipage}[c]{.2\textwidth}
+      \centering #1
+    \end{minipage}
+    \begin{minipage}[c]{.5\textwidth}
+      \centering
+      \progressbar[roundnessa=2pt, ticksheight=0pt, width=\textwidth]{#3}
+    \end{minipage}
+    \begin{minipage}[c]{.1\textwidth}
+      \centering
+      \textbf{#2}
+    \end{minipage}
+  \end{center}
+  \vspace{-1em}
 }
 
 %%% End resume page commands %%%
