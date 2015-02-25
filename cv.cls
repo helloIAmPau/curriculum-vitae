@@ -73,6 +73,12 @@
 }
 \providecommand\faSkype{{\FA\symbol{"F17E}}}
 
+\newenvironment{cvsection}[2]{
+  \begin{center}
+    \sectiontitle{#1}{#2}
+  \end{center}
+}{}
+
 \newenvironment{resume}{
   \begin{minipage}[t][.99\textheight][t]{.35\textwidth}
     %%% Begin Title %%%
@@ -124,7 +130,7 @@
     \end{center}
   \end{minipage}
   \vrule
-  \begin{minipage}{.65\textwidth}
+  \begin{minipage}[t]{.65\textwidth}
 }{
   \end{minipage}
 }

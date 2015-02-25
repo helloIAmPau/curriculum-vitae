@@ -1,5 +1,6 @@
 language: C
 before_install: 
+- pwd
 - sudo apt-get update -qq
 - wget https://github.com/scottkosty/install-tl-ubuntu/raw/master/install-tl-ubuntu
 - chmod +x ./install-tl-ubuntu
