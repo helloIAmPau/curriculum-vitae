@@ -1,13 +1,12 @@
 language: C
 before_install: 
-- pwd
 - sudo apt-get update -qq
 - wget https://github.com/scottkosty/install-tl-ubuntu/raw/master/install-tl-ubuntu
 - chmod +x ./install-tl-ubuntu
-- wget -O linux.profile https://gist.githubusercontent.com/helloIAmPau/f1f6d90a9aadd514ef1d/raw/0b9b7b1097fbba4197106e856537e238804f3f4e/linux.profile
+- wget -O linux.profile https://gist.githubusercontent.com/helloIAmPau/f1f6d90a9aadd514ef1d/raw/63e98508673003ac0509b2e7f5759a4b1e7afff3/linux.profile
 - sudo ./install-tl-ubuntu -p linux.profile --no-link-ubuntu --repository http://ctan.mirror.garr.it/mirrors/CTAN/
-- ls /opt/TexLive/bin/x86_64-linux/
-- export PATH="$PATH:/opt/TexLive/bin/x86_64-linux/"
+- ls /home/travis/build/helloIAmPau/curriculum-vitae/tl/bin/x86_64-linux/
+- export PATH="$PATH:/home/travis/build/helloIAmPau/curriculum-vitae/tl/bin/x86_64-linux/"
 script: make deploy
 after_success: 
 - cd out/

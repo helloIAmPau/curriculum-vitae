@@ -130,7 +130,8 @@
     \end{center}
   \end{minipage}
   \vrule
-  \begin{minipage}[t]{.65\textwidth}
+  \hfill
+  \begin{minipage}[t]{.6\textwidth}
 }{
   \end{minipage}
 }
