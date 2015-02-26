@@ -5,8 +5,7 @@ before_install:
 - chmod +x ./install-tl-ubuntu
 - wget -O linux.profile https://gist.githubusercontent.com/helloIAmPau/f1f6d90a9aadd514ef1d/raw/63e98508673003ac0509b2e7f5759a4b1e7afff3/linux.profile
 - sudo ./install-tl-ubuntu -p linux.profile --no-link-ubuntu --repository http://ctan.mirror.garr.it/mirrors/CTAN/
-- ls /home/travis/build/helloIAmPau/curriculum-vitae/tl/bin/x86_64-linux/
-- export PATH="$PATH:/home/travis/build/helloIAmPau/curriculum-vitae/tl/bin/x86_64-linux/"
+- export PATH="$PATH:/opt/texbin/"
 script: make deploy
 after_success: 
 - cd out/
