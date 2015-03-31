@@ -1,6 +1,10 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{cv}[2015/02/22 CV]
 
+\usepackage{ifthen}
+
+\setlength\parindent{0pt}
+
 \RequirePackage[utf8]{inputenc}
 \LoadClass{article}
 
@@ -14,6 +18,8 @@
 \pagenumbering{gobble}
 
 \newfontfamily\FAW[Path=fonts/]{FontAwesome.otf}
+
+\RequirePackage[document]{ragged2e}
 
 % Title with lines
 \newcommand*\ruleline[1]{\par\noindent\raisebox{.8ex}{\makebox[.9\linewidth]{\hrulefill\hspace{1ex}\raisebox{-.8ex}{#1}\hspace{1ex}\hrulefill}}}
@@ -80,10 +86,11 @@
   \begin{center}
     \sectiontitle{#1}{#2}
   \end{center}
-}{}
+  \begin{justify}
+}{\end{justify}}
 
 \newenvironment{resume}{
-  \begin{minipage}[c][.99\textheight][c]{.35\textwidth}
+  \begin{minipage}[t][.99\textheight][t]{.35\textwidth}
     \begin{center}
       \includegraphics[width=.4\textwidth]{\photoval}
     \end{center}
@@ -133,28 +140,42 @@
   \end{minipage}
   \vrule
   \hfill
-  \begin{minipage}[c]{.6\textwidth}
+  \begin{minipage}[t]{.6\textwidth}
 }{
   \end{minipage}
 }
 
 \newcommand{\level}[3]{
-  \vspace{-1em}
-  \begin{center}
     \begin{minipage}[c]{.2\textwidth}
-      \centering #1
+      #1
     \end{minipage}
     \begin{minipage}[c]{.5\textwidth}
       \centering
       \progressbar[roundnessa=2pt, ticksheight=0pt, width=\textwidth]{#3}
     \end{minipage}
     \begin{minipage}[c]{.1\textwidth}
-      \centering
       \textbf{#2}
     \end{minipage}
-  \end{center}
-  \vspace{-1em}
 }
 
 %%% End resume page commands %%%
 
+\newcommand{\cvitem}[3]{
+  \begin{minipage}[t]{.2\textwidth}
+    #1
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{.8\textwidth}
+    #2
+  \end{minipage}
+  \ifthenelse{\equal{#3}{}}{}{
+    \begin{minipage}[t]{.2\textwidth}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{.8\textwidth}
+      \begin{justify}
+        #3
+      \end{justify}
+    \end{minipage}
+  }
+}
