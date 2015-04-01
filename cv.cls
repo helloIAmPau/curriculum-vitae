@@ -160,21 +160,23 @@
 
 %%% End resume page commands %%%
 
-\newcommand{\cvitem}[3]{
+\newcommand{\cvitem}[4]{
   \begin{minipage}[t]{.2\textwidth}
     #1
   \end{minipage}
   \hfill
   \begin{minipage}[t]{.8\textwidth}
-    #2
+    {#2}\\
+    {#3}
+    \smallskip
   \end{minipage}
-  \ifthenelse{\equal{#3}{}}{}{
+  \ifthenelse{\equal{#4}{}}{}{
     \begin{minipage}[t]{.2\textwidth}
     \end{minipage}
     \hfill
     \begin{minipage}[t]{.8\textwidth}
       \begin{justify}
-        #3
+        #4
       \end{justify}
     \end{minipage}
   }
