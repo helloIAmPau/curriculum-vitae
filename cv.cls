@@ -1,25 +1,32 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{cv}[2015/02/22 CV]
 
+\LoadClass{article}
+\RequirePackage[utf8]{inputenc}
+
 \usepackage{ifthen}
 
 \setlength\parindent{0pt}
 
-\RequirePackage[utf8]{inputenc}
-\LoadClass{article}
-
 \usepackage[margin=0.3in]{geometry}
 \RequirePackage{progressbar}
 \RequirePackage{graphicx}
+\RequirePackage{tikz}
 \RequirePackage{fontawesome}
 \RequirePackage{hyperref}
 \RequirePackage{datetime}
-\renewcommand*{\familydefault}{\sfdefault}
 \pagenumbering{gobble}
 
+\setmainfont[
+  Path={fonts/},
+  BoldFont={Aller_Bd.ttf},
+  ItalicFont={Aller_It.ttf}
+]{Aller_Rg.ttf}
 \newfontfamily\FAW[Path=fonts/]{FontAwesome.otf}
 
 \RequirePackage[document]{ragged2e}
+
+\RequirePackage{float}
 
 % Title with lines
 \newcommand*\ruleline[1]{\par\noindent\raisebox{.8ex}{\makebox[.9\linewidth]{\hrulefill\hspace{1ex}\raisebox{-.8ex}{#1}\hspace{1ex}\hrulefill}}}
@@ -91,9 +98,19 @@
 
 \newenvironment{resume}{
   \begin{minipage}[t][.99\textheight][t]{.35\textwidth}
-    \begin{center}
-      \includegraphics[width=.4\textwidth]{\photoval}
-    \end{center}
+    \vspace{-3em}
+    \begin{figure}[H]
+      \centering
+      \begin{tikzpicture}
+        \node [inner sep=0pt] at (0,0) {\includegraphics[width=.4\textwidth]{\photoval}};
+        \draw [white, rounded corners=.2cm, line width=.2cm] 
+          (current bounding box.north west) --
+          (current bounding box.north east) --
+          (current bounding box.south east) --
+          (current bounding box.south west) -- cycle
+          ;
+      \end{tikzpicture}
+    \end{figure}
     \begin{center}
       \LARGE
       \MakeUppercase\nameval\\
@@ -140,7 +157,7 @@
   \end{minipage}
   \vrule
   \hfill
-  \begin{minipage}[t]{.6\textwidth}
+  \begin{minipage}[t][.99\textheight][t]{.6\textwidth}
 }{
   \end{minipage}
 }
@@ -161,23 +178,20 @@
 %%% End resume page commands %%%
 
 \newcommand{\cvitem}[4]{
-  \begin{minipage}[t]{.2\textwidth}
-    #1
-  \end{minipage}
-  \hfill
-  \begin{minipage}[t]{.8\textwidth}
-    {#2}\\
-    {#3}
-    \smallskip
-  \end{minipage}
-  \ifthenelse{\equal{#4}{}}{}{
-    \begin{minipage}[t]{.2\textwidth}
+  \begin{center}
+    \begin{minipage}[t]{.15\textwidth}
+      \flushright
+      #1
     \end{minipage}
     \hfill
     \begin{minipage}[t]{.8\textwidth}
-      \begin{justify}
+      {#2}\\
+      {#3}
+      \ifthenelse{\equal{#4}{}}{}{
+        \newline
+        \vspace{.5em}
         #4
-      \end{justify}
+      }
     \end{minipage}
-  }
+  \end{center}
 }
