@@ -181,8 +181,9 @@
 \newcommand{\cvitem}[4]{
   \begin{center}
     \begin{minipage}[t]{.15\textwidth}
-      \flushright
-      #1
+      \begin{flushright}
+        #1
+      \end{flushright}
     \end{minipage}
     \hfill
     \begin{minipage}[t]{.8\textwidth}
