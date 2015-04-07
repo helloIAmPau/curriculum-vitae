@@ -97,8 +97,8 @@
 
 \newenvironment{resume}{
   \newgeometry{margin=0.3in}
-  \begin{minipage}[t][.99\textheight][t]{.35\textwidth}
-    \vspace{-3em}
+  \begin{minipage}[c][.99\textheight][t]{.35\textwidth}
+    \vspace{-2em}
     \begin{figure}[H]
       \centering
       \begin{tikzpicture}
@@ -157,7 +157,7 @@
   \end{minipage}
   \vrule
   \hfill
-  \begin{minipage}[t][.99\textheight][t]{.6\textwidth}
+  \begin{minipage}[c]{.6\textwidth}
 }{
   \end{minipage}
   \restoregeometry
