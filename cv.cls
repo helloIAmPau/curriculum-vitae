@@ -7,8 +7,7 @@
 \usepackage{ifthen}
 
 \setlength\parindent{0pt}
-
-\usepackage[margin=0.3in]{geometry}
+\usepackage[top=.3in,bottom=.3in,right=.3in]{geometry}
 \RequirePackage{progressbar}
 \RequirePackage{graphicx}
 \RequirePackage{tikz}
@@ -97,6 +96,7 @@
 }{\end{justify}}
 
 \newenvironment{resume}{
+  \newgeometry{margin=0.3in}
   \begin{minipage}[t][.99\textheight][t]{.35\textwidth}
     \vspace{-3em}
     \begin{figure}[H]
@@ -160,6 +160,7 @@
   \begin{minipage}[t][.99\textheight][t]{.6\textwidth}
 }{
   \end{minipage}
+  \restoregeometry
 }
 
 \newcommand{\level}[3]{
