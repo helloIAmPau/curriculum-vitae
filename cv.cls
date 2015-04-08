@@ -1,13 +1,16 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{cv}[2015/02/22 CV]
 
-\LoadClass{article}
+\LoadClass[a4paper]{article}
 \RequirePackage[utf8]{inputenc}
 
 \usepackage{ifthen}
 
 \setlength\parindent{0pt}
-\usepackage[top=.3in,bottom=.3in,right=.3in]{geometry}
+\usepackage[a4paper,total={210mm,297mm},top=12mm,left=25mm,bottom=12mm,right=7.5mm]{geometry}
+
+\usepackage[strict]{changepage}
+
 \RequirePackage{progressbar}
 \RequirePackage{graphicx}
 \RequirePackage{tikz}
@@ -89,78 +92,80 @@
 \providecommand\faGraduationCap{{\FAW\symbol{"F19D}}}
 
 \newenvironment{cvsection}[2]{
-  \begin{center}
-    \sectiontitle{#1}{#2}
-  \end{center}
-  \begin{justify}
+    \begin{center}
+      \sectiontitle{#1}{#2}
+    \end{center}
+    \begin{justify}
 }{\end{justify}}
 
 \newenvironment{resume}{
-  \newgeometry{margin=0.3in}
-  \begin{minipage}[c][.99\textheight][t]{.35\textwidth}
-    \vspace{-2em}
-    \begin{figure}[H]
-      \centering
-      \begin{tikzpicture}
-        \node [inner sep=0pt] at (0,0) {\includegraphics[width=.4\textwidth]{\photoval}};
-        \draw [white, rounded corners=.2cm, line width=.2cm] 
+  \begin{adjustwidth}{-17.5mm}{}
+    \begin{minipage}[c][.99\textheight][t]{.35\textwidth}
+      \vspace{-2em}
+      \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}
+          \node [inner sep=0pt] at (0,0) {\includegraphics[width=.4\textwidth]{\photoval}};
+          \draw [white, rounded corners=.2cm, line width=.2cm] 
           (current bounding box.north west) --
           (current bounding box.north east) --
           (current bounding box.south east) --
           (current bounding box.south west) -- cycle
           ;
-      \end{tikzpicture}
-    \end{figure}
-    \begin{center}
-      \LARGE
-      \MakeUppercase\nameval\\
-      \MakeUppercase\surnameval
-    \end{center}
-    \begin{center}
-      \small
-      \MakeUppercase\shortdescval
-    \end{center}
-    %%% End Title %%%
-    \bigskip
-    %%% Begin About %%%
-    \begin{center}
-      \sectiontitle{\faUserSecret}{About}
-    \end{center}
-    \begin{tabular}{cl}
-      \faCalendar & \borndateval\\
-      \faHome & \addressval\\
-      \faMapMarker & \locationval\\
-      \faSignal & \accademiclevelval
-    \end{tabular}
-    %%% End About %%%
-    \bigskip
-    %%% Begin Contacts %%%
-    \begin{center}
-      \sectiontitle{\faBullhorn}{Contacts}
-    \end{center}
-    \begin{tabular}{cl}
-      \faPhone & \telephoneval\\
-      \faMobilePhone & \mobileval\\
-      \faSkype & \skypenameval\\
-      \faEnvelope & \url{\mailval}\\
-      \faGithub & \url{\githuburlval}\\
-      \faLinkedinSign & \url{\linkedinurlvalue}
-    \end{tabular}
-    %%% End Contacts %%%
-    \vfill
-    \begin{center}
-      \includegraphics[width=.5\textwidth]{\qrcodeval}
-    \end{center}
-    \begin{center}
-      \small Last update \today
-    \end{center}
+        \end{tikzpicture}
+      \end{figure}
+      \begin{center}
+        \LARGE
+        \MakeUppercase\nameval\\
+        \MakeUppercase\surnameval
+      \end{center}
+      \begin{center}
+        \small
+        \MakeUppercase\shortdescval
+      \end{center}
+      %%% End Title %%%
+      \bigskip
+      %%% Begin About %%%
+      \begin{center}
+        \sectiontitle{\faUserSecret}{About}
+      \end{center}
+      \begin{tabular}{cl}
+        \faCalendar & \borndateval\\
+        \faHome & \addressval\\
+        \faMapMarker & \locationval\\
+        \faSignal & \accademiclevelval
+      \end{tabular}
+      %%% End About %%%
+      \bigskip
+      %%% Begin Contacts %%%
+      \begin{center}
+        \sectiontitle{\faBullhorn}{Contacts}
+      \end{center}
+      \begin{tabular}{cl}
+        \faPhone & \telephoneval\\
+        \faMobilePhone & \mobileval\\
+        \faSkype & \skypenameval\\
+        \faEnvelope & \url{\mailval}\\
+        \faGithub & \url{\githuburlval}\\
+        \faLinkedinSign & \url{\linkedinurlvalue}
+      \end{tabular}
+      %%% End Contacts %%%
+      \vfill
+      \begin{center}
+        \includegraphics[width=.5\textwidth]{\qrcodeval}
+      \end{center}
+      \begin{center}
+        \small Last update \today
+      \end{center}
+    \end{minipage}
+    \hfill
+    \vrule
+    \hfill
+    \begin{minipage}[c]{.6\textwidth}
+  }{
   \end{minipage}
-  \vrule
-  \hfill
-  \begin{minipage}[c]{.6\textwidth}
-}{
-  \end{minipage}
-  \restoregeometry
+\end{adjustwidth}
+\newpage
 }
 
 \newcommand{\level}[3]{
@@ -189,11 +194,13 @@
     \begin{minipage}[t]{.8\textwidth}
       {#2}\\
       {#3}
-      \ifthenelse{\equal{#4}{}}{}{
+      \ifthenelse{\not\(\equal{#3}{} \or \equal{#4}{}\)}{
         \newline
+      }{}
+      \ifthenelse{\not \equal{#4}{}}{
         \vspace{.5em}
         #4
-      }
+      }{}
     \end{minipage}
   \end{center}
 }
