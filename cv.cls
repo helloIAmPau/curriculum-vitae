@@ -90,6 +90,7 @@
 \providecommand\faSkype{{\FAW\symbol{"F17E}}}
 \providecommand\faUserSecret{{\FAW\symbol{"F21B}}}
 \providecommand\faGraduationCap{{\FAW\symbol{"F19D}}}
+\providecommand\faFlask{{\FAW\symbol{"F0C3}}}
 
 \newenvironment{cvsection}[2]{
     \begin{center}
