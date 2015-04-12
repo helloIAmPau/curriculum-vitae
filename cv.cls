@@ -7,7 +7,7 @@
 \usepackage{ifthen}
 
 \setlength\parindent{0pt}
-\usepackage[a4paper,total={210mm,297mm},top=12mm,left=25mm,bottom=12mm,right=7.5mm]{geometry}
+\usepackage[a4paper,total={210mm,297mm},top=20mm,left=30mm,bottom=20mm,right=7.5mm]{geometry}
 
 \usepackage[strict]{changepage}
 
@@ -18,6 +18,8 @@
 \RequirePackage{hyperref}
 \RequirePackage{datetime}
 \pagenumbering{gobble}
+
+%\usepackage{showframe}
 
 \setmainfont[
   Path={fonts/},
@@ -93,10 +95,11 @@
 \providecommand\faFlask{{\FAW\symbol{"F0C3}}}
 
 \newenvironment{cvsection}[2]{
-    \begin{center}
-      \sectiontitle{#1}{#2}
-    \end{center}
-    \begin{justify}
+  \medskip
+  \begin{center}
+    \sectiontitle{#1}{#2}
+  \end{center}
+  \begin{justify}
 }{\end{justify}}
 
 \newenvironment{resume}{
