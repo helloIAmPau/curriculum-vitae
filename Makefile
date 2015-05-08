@@ -9,7 +9,7 @@ quiet:
 
 view: quiet
 	make quiet
-	open "/tmp/`basename '$(CURDIR)'`"/*.pdf
+	#open "/tmp/`basename '$(CURDIR)'`"/*.pdf
 
 deploy: quiet
 	mkdir -p out/
