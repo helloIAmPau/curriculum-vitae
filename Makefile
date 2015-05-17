@@ -15,6 +15,7 @@ view: quiet
 	open "/tmp/`basename '$(CURDIR)'`"/*.pdf
 
 deploy: quiet
+	make quiet
 	mkdir -p out/
 	cp "/tmp/`basename '$(CURDIR)'`"/main.pdf ./out
 

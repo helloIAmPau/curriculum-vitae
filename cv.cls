@@ -17,8 +17,14 @@
 \RequirePackage{fontawesome}
 \RequirePackage{hyperref}
 \RequirePackage{datetime}
-\pagenumbering{gobble}
+%\pagenumbering{gobble}
 
+\RequirePackage{fancyhdr}
+\RequirePackage{lastpage}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\rfoot{\textcolor{gray}{\footnotesize page \thepage \hspace{1pt} of \pageref{LastPage}}}
 %\usepackage{showframe}
 
 \setmainfont[
