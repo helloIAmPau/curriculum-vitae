@@ -1,3 +1,6 @@
+current_dir = $(shell pwd)
+export PATH := $(PATH):$(current_dir)/deps/fswatch/out/bin
+
 all: view
 
 single: quiet
@@ -9,7 +12,7 @@ quiet:
 
 view: quiet
 	make quiet
-	#open "/tmp/`basename '$(CURDIR)'`"/*.pdf
+	open "/tmp/`basename '$(CURDIR)'`"/*.pdf
 
 deploy: quiet
 	mkdir -p out/
