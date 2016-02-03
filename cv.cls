@@ -4,7 +4,8 @@
 \LoadClass[a4paper]{article}
 \RequirePackage[utf8]{inputenc}
 
-\usepackage{ifthen}
+\usepackage{xifthen}
+\usepackage{etoolbox}
 
 \setlength\parindent{0pt}
 \usepackage[a4paper,total={210mm,297mm},top=20mm,left=30mm,bottom=20mm,right=7.5mm]{geometry}
@@ -58,6 +59,12 @@
 \newcommand{\telephone}[1] {
   \newcommand{\telephoneval}{#1}
 }
+\newcommand{\telephonemarkup}{
+  \ifdef{\telephoneval}
+    {\faPhone & \telephoneval\\}
+    {}
+}
+
 \newcommand{\mobile}[1] {
   \newcommand{\mobileval}{#1}
 }
@@ -99,6 +106,8 @@
 \providecommand\faUserSecret{{\FAW\symbol{"F21B}}}
 \providecommand\faGraduationCap{{\FAW\symbol{"F19D}}}
 \providecommand\faFlask{{\FAW\symbol{"F0C3}}}
+\providecommand\faLinkedinSign{{\FAW\symbol{"F08C}}}
+\providecommand\faCommentsAlt{{\FAW\symbol{"F0E6}}}
 
 \newenvironment{cvsection}[2]{
   \medskip
@@ -152,7 +161,7 @@
         \sectiontitle{\faBullhorn}{Contacts}
       \end{center}
       \begin{tabular}{cl}
-        \faPhone & \telephoneval\\
+        \telephonemarkup
         \faMobilePhone & \mobileval\\
         \faSkype & \skypenameval\\
         \faEnvelope & \url{\mailval}\\
