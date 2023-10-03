@@ -71,14 +71,8 @@
 \newcommand{\mail}[1] {
   \newcommand{\mailval}{#1}
 }
-\newcommand{\skypename}[1] {
-  \newcommand{\skypenameval}{#1}
-}
 \newcommand{\githuburl}[1] {
   \newcommand{\githuburlval}{#1}
-}
-\newcommand{\linkedinurl}[1] {
-  \newcommand{\linkedinurlvalue}{#1}
 }
 \newcommand{\borndate}[1] {
   \newcommand{\borndateval}{#1}
@@ -88,9 +82,6 @@
 }
 \newcommand{\address}[1] {
   \newcommand{\addressval}{#1}
-}
-\newcommand{\qrcode}[1] {
-  \newcommand{\qrcodeval}{#1}
 }
 \newcommand{\accademiclevel}[1] {
   \newcommand{\accademiclevelval}{#1}
@@ -163,19 +154,11 @@
       \begin{tabular}{cl}
         \telephonemarkup
         \faMobilePhone & \mobileval\\
-        \faSkype & \skypenameval\\
         \faEnvelope & \url{\mailval}\\
         \faGithub & \url{\githuburlval}\\
-        \faLinkedinSign & \url{\linkedinurlvalue}
       \end{tabular}
       %%% End Contacts %%%
       \vfill
-      \begin{center}
-        \includegraphics[width=.5\textwidth]{\qrcodeval}
-      \end{center}
-      \begin{center}
-        \small Last update \today
-      \end{center}
     \end{minipage}
     \hfill
     \vrule
