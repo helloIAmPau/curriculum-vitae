@@ -1,5 +1,5 @@
 current_dir = $(shell pwd)
-export PATH := $(PATH):$(current_dir)/deps/fswatch/out/bin
+export PATH := $(PATH):$(current_dir)/deps/fswatch/out/bin:/opt/texbin/
 
 all: view
 
@@ -26,4 +26,8 @@ clean:
 	rm -rf "/tmp/`basename '$(CURDIR)'`"
 	rm -rf output
 
-.PHONY: view clean deploy quiet 
+docker:
+	docker build -t helloiampau/cv:0.0.0 .
+	docker run -t -i -v $(current_dir):/repo helloiampau/cv:0.0.0 make deploy
+
+.PHONY: docker view clean deploy quiet 
